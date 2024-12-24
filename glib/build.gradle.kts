@@ -4,6 +4,18 @@ plugins {
     id("maven-publish")
 }
 
+afterEvaluate{
+    android.libraryVariants.forEach{ variant ->
+        publishing.publications.create(variant.name,MavenPublication::class){
+            from(components.findByName(variant.name))
+            groupId = "com.gx"
+            artifactId = "glib"
+            version = "0.0.1"
+        }
+    }
+}
+
+
 android {
     namespace = "com.gx.glib"
     compileSdk = 35
