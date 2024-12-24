@@ -1,5 +1,4 @@
 *.iml
-.gradle
 .idea
 /local.properties
 /gradle/wrapper/*
