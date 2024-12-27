@@ -17,6 +17,13 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven(url = "https://jitpack.io")
+        maven {
+            setUrl("http://maven.aliyun.com/nexus/content/repositories/releases")
+            isAllowInsecureProtocol = true
+        }
+        maven {
+            setUrl("https://jitpack.io")
+        }
     }
 }
 

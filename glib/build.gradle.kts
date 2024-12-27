@@ -10,7 +10,7 @@ afterEvaluate{
             from(components.findByName(variant.name))
             groupId = "com.gx"
             artifactId = "glib"
-            version = "0.0.1"
+            version = "0.0.4"
         }
     }
 }
@@ -49,4 +49,8 @@ dependencies {
 //    implementation(libs.androidx.core.ktx)
 //    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.refresh.layout.kernel)
+    implementation(libs.refresh.layout.header)
+    implementation(libs.refresh.layout.footer)
+    implementation(libs.androidx.constraint.layout)
 }
