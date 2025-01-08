@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.DisplayMetrics
 import android.view.WindowManager
 
-object PhoneUtils {
+object DeviceUtils {
 
     /**
      * Get the screen width in px
