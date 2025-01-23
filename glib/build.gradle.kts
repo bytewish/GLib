@@ -10,7 +10,7 @@ afterEvaluate{
             from(components.findByName(variant.name))
             groupId = "com.gx"
             artifactId = "glib"
-            version = "0.0.7"
+            version = "0.0.8"
         }
     }
 }

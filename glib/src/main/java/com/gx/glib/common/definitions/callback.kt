@@ -1,4 +1,4 @@
-package com.gx.glib.commondefinitions
+package com.gx.glib.common.definitions
 
 interface CallBack{
     fun onCall()
