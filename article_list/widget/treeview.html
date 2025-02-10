@@ -1,0 +1,563 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>treeview · GLib document</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../common/" />
+    
+    
+    <link rel="prev" href="refresh-more-recyclerview.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    widget
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="default_spinner.html">
+            
+                <a href="default_spinner.html">
+            
+                    
+                    default spinner
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="refresh-more-recyclerview.html">
+            
+                <a href="refresh-more-recyclerview.html">
+            
+                    
+                    refresh more recyclerview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="treeview.html">
+            
+                <a href="treeview.html">
+            
+                    
+                    treeview
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../common/">
+            
+                <a href="../common/">
+            
+                    
+                    common
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../use_case/">
+            
+                <a href="../use_case/">
+            
+                    
+                    use case
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../strategy/">
+            
+                <a href="../strategy/">
+            
+                    
+                    strategy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >treeview</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<h1 id="introduce">introduce</h1>
+<p>This is an Android tree hierarchy selection widget. The widget&apos;s code is derived from <a href="https://github.com/gapowork/android-tree-view?tab=readme-ov-file" target="_blank">github Link</a>. Based on this library, additional partial selection functionality  and remove the unable select state.</p>
+<h1 id="how-to-use">how to use</h1>
+<p>Data Conversion  </p>
+<pre><code>data class ProductCategoryModel(
+    override val nodeViewId: String,
+    val name: String,
+    val child: List&lt;ProductCategoryModel&gt;,
+) : NodeData&lt;ProductCategoryModel&gt; {
+    override fun getNodeChild(): List&lt;ProductCategoryModel&gt; {
+        return child
+    }
+
+    companion object {
+        private fun convertToCategoryModelList(productSubList: MutableList&lt;ProductSub&gt;?): MutableList&lt;ProductCategoryModel&gt; {
+            if (productSubList == null || productSubList.isEmpty()) return mutableListOf()
+
+            return productSubList.map { productSub -&gt;
+                ProductCategoryModel(
+                    nodeViewId = productSub.id.toString(),
+                    name = productSub.name ?: &quot;Unnamed&quot;,
+                    child = convertToCategoryModelList(productSub.sub)
+                )
+            }.toMutableList()
+        }
+
+        fun getList(dataList: MutableList&lt;ProductSub&gt;) = convertToCategoryModelList(dataList)
+    }
+
+    override fun areItemsTheSame(item: NodeData&lt;ProductCategoryModel&gt;): Boolean {
+        return if (item !is ProductCategoryModel) false
+        else nodeViewId == item.nodeViewId
+    }
+
+    override fun areContentsTheSame(item: NodeData&lt;ProductCategoryModel&gt;): Boolean {
+        return if (item !is ProductCategoryModel) false
+        else item.name == name &amp;&amp; item.child.size == child.size
+    }
+
+    override fun getChangePayload(item: NodeData&lt;ProductCategoryModel&gt;): Bundle {
+        return Bundle()
+    }
+}
+</code></pre><p>Custom your item layout&#xFF1A;We use <a href="com.github.sevar83:indeterminate-checkbox:1.0.5@aar" target="_blank">indeterminateCheckbox</a> to support three state checkbox, all select/ no select/part select. if you want have tree state, just use it with maven dependency</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;androidx.appcompat.widget.LinearLayoutCompat xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:gravity=&quot;center_vertical&quot;
+    android:minHeight=&quot;48dp&quot;
+    android:orientation=&quot;horizontal&quot;
+    android:paddingEnd=&quot;12dp&quot;
+    tools:ignore=&quot;RtlSymmetry&quot;&gt;
+
+    &lt;androidx.appcompat.widget.AppCompatImageView
+        android:id=&quot;@+id/iv_arrow&quot;
+        android:layout_width=&quot;24dp&quot;
+        android:layout_height=&quot;24dp&quot;
+        android:tint=&quot;@color/black_33&quot;
+        app:srcCompat=&quot;@drawable/data_svg_right_arrow&quot; /&gt;
+
+    &lt;androidx.appcompat.widget.AppCompatTextView
+        android:id=&quot;@+id/tv_department_name&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_weight=&quot;1&quot;
+        android:paddingStart=&quot;8dp&quot;
+        android:textColor=&quot;@android:color/black&quot;
+        tools:text=&quot;GAPO&quot; /&gt;
+
+    &lt;com.buildware.widget.indeterm.IndeterminateCheckBox
+        android:id=&quot;@+id/rb_check&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:minWidth=&quot;0dp&quot; /&gt;
+
+&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;
+</code></pre><p>Initialize Selector</p>
+<pre><code>class MutiSelectCategoryActivity : BaseAppViewBindingActivity&lt;SetCategoryModel, ActivityMultiSelectCategoryBinding&gt;(),
+    GapoTreeView.Listener&lt;ProductCategoryModel&gt;{
+
+    private lateinit var treeView: GapoTreeView&lt;ProductCategoryModel&gt;
+    private var isShowLoading = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        showLoading()
+        mViewModel.getCategoryAl()
+        initListener()
+    }
+
+    private fun initListener(){
+        mBinding.tvSave.setOnClickListener {
+            var selectIds =  treeView.getSelectedNodes()
+            var resultList = mutableListOf&lt;String&gt;()
+            var resultIntent = Intent()
+            if(selectIds.size &gt; 0){
+                selectIds.forEach {
+                    if(it.child.size &lt; 1){
+                        resultList.add(it.nodeViewId)
+                    }
+                }
+                resultIntent.putStringArrayListExtra(CommonCode.pageCategoryName, ArrayList(resultList))
+                setResult(CommonCode.rqResultOK,resultIntent)
+            }
+            finish()
+        }
+    }
+
+    private fun startBindData(dataList:MutableList&lt;ProductSub&gt;){
+        treeView = GapoTreeView.Builder.plant&lt;ProductCategoryModel&gt;(this)
+            .withRecyclerView(mBinding.treeView)
+            .withLayoutRes(R.layout.view_multi_node_view)
+            .setListener(this)
+            .setData(ProductCategoryModel.getList(dataList).toMutableList())
+            .build()
+
+        (intent.getSerializableExtra(CommonCode.pageParam) as? ArrayList&lt;String&gt;)?.forEach {
+            treeView.selectNode(it,true)
+        }
+    }
+
+    override fun onBind(holder: View, position: Int, item: NodeViewData&lt;ProductCategoryModel&gt;, bundle: Bundle?) {
+        val ivArrow = holder.findViewById&lt;AppCompatImageView&gt;(R.id.iv_arrow)
+        val cbCheck = holder.findViewById&lt;IndeterminateCheckBox&gt;(R.id.rb_check)
+        val tvNode = holder.findViewById&lt;AppCompatTextView&gt;(R.id.tv_department_name)
+        val data = item.getData()
+
+        tvNode.text = data.name
+
+        if (item.isLeaf) {
+            ivArrow.visibility = View.INVISIBLE
+        } else {
+            ivArrow.visibility = View.VISIBLE
+        }
+        val rotateDegree = if (item.isExpanded) 90f else 0f
+        ivArrow.rotation = rotateDegree
+
+//        cbCheck.isChecked = item.isSelected
+
+        if(item.isLeaf){
+            cbCheck.isIndeterminate = false
+            cbCheck.state = item.isSelected
+        }else{
+            when(treeView.checkNodeChildState(item.nodeId)){
+                -1 -&gt; {
+                    cbCheck.isIndeterminate = false
+                    item.isSelected = false
+                    cbCheck.state = false
+                }
+                0 -&gt; {
+                    cbCheck.isIndeterminate = true
+                    cbCheck.state = null
+                }
+                1 -&gt; {
+                    cbCheck.isIndeterminate = false
+                    item.isSelected = true
+                    cbCheck.state = true
+                }
+            }
+        }
+
+        //select node
+        cbCheck.setOnClickListener {
+            treeView.selectNode(item.nodeId, !item.isSelected) // will trigger onNodeSelected
+        }
+
+        //toggle node
+        holder.setOnClickListener {
+            if (item.isExpanded) {
+                treeView.collapseNode(item.nodeId)
+            } else {
+                treeView.expandNode(item.nodeId)
+            }
+        }
+
+        if((isShowLoading == false) &amp;&amp; (position &gt; 6)){
+            isShowLoading = true
+            dismissLoading()
+        }
+    }
+
+    override fun onNodeSelected(node: NodeViewData&lt;ProductCategoryModel&gt;, child: List&lt;NodeViewData&lt;ProductCategoryModel&gt;&gt;, isSelected: Boolean) {
+        //set selected for parent node and its child
+        treeView.setSelectedNode(arrayListOf(node).apply { addAll(child) }, isSelected)
+
+        //disable all child
+        treeView.setNodesState(
+            child.map { it.nodeId },
+            if (isSelected) NodeStateDisabled else null
+        )
+
+        //update layout
+        treeView.requestUpdateTree()
+    }
+
+    companion object {
+        object NodeStateDisabled : NodeState()
+    }
+
+    override fun createObserver() {
+        mViewModel.categoryList.observe(this){
+            startBindData(it)
+        }
+    }
+
+    override fun getToolbar() = mBinding.toolbar
+}
+</code></pre><h1 id="need-notice">Need notice</h1>
+<p>When the data is too large, data conversion can take a long time. Therefore, it is best to display a progress bar during the conversion process when handling large datasets.</p>
+
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="refresh-more-recyclerview.html" class="navigation navigation-prev " aria-label="Previous page: refresh more recyclerview">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="../common/" class="navigation navigation-next " aria-label="Next page: common">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"treeview","level":"1.2.3","depth":2,"next":{"title":"common","level":"1.3","depth":1,"path":"article_list/common/README.md","ref":"./article_list/common/README.md","articles":[]},"previous":{"title":"refresh more recyclerview","level":"1.2.2","depth":2,"path":"article_list/widget/refresh-more-recyclerview.md","ref":"./article_list/widget/refresh-more-recyclerview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-fexa","-fontsettings","cuav-chapters","-lunr","-search","search-plus","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-fexa":{"search-placeholder":"search","logo":"./imgs/logo.png","favicon":"./favicon.ico"},"cuav-chapters":{"summaryMaxSize":1,"useLimitExpanded":false},"search-plus":{},"livereload":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"GLib document","gitbook":"*","description":"details of GLib"},"file":{"path":"article_list/widget/treeview.md","mtime":"2025-02-08T09:42:43.404Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-02-10T01:37:09.314Z"},"basePath":"../..","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+
+    </body>
+</html>
+
