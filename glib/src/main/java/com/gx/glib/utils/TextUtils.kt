@@ -10,4 +10,16 @@ object TextUtils {
         return input?.all { it.isDigit() } ?: false
     }
 
+    /**
+     * Check whether the text contains non-empty characters
+     * validSpace: true means space will be regarded as valid characters
+     */
+    fun isNotEmpty(input: String?,validSpace:Boolean):Boolean{
+        if(!validSpace){
+            input?.replace(" ","")
+        }
+
+        return !android.text.TextUtils.isEmpty(input)
+    }
+
 }
